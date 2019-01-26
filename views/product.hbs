@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <title>{{title}}</title>
+</head>
+<body>
+    <form method="POST" action="">
+    {{#each product}}
+    <div class="form-group">
+    <h1>{{id}}</h1>
+    <h3>title: {{title}}</h3>
+    <h5>vendor: {{vendor}}</h5>
+    <p>product_type: {{product_type}}</p>
+    </div>
+    <button type="submit" class="btn btn-default">details</button>
+    <button type="submit" class="btn btn-primary">edit</button>
+    <hr>
+    {{/each}}
+    </form>
+</body>
+</html>

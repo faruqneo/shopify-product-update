@@ -1,0 +1,25 @@
+{
+  "name": "shopify-product-update",
+  "version": "1.0.0",
+  "description": "it is a testing repo which is use to display and edit shopify product data.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/faruqneo/shopify-product-update.git"
+  },
+  "author": "FARUQ KHAN",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/faruqneo/shopify-product-update/issues"
+  },
+  "homepage": "https://github.com/faruqneo/shopify-product-update#readme",
+  "dependencies": {
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "express-hbs": "^2.0.1",
+    "shopify-api-node": "^2.17.2"
+  }
+}
