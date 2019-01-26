@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <title>{{title}}</title>
+</head>
+<body>
+    <form method="POST" action="">
+        <ul>
+        <li><b>id:</b> {{product.id}}</li>
+        <li><b>title:</b> {{product.title}}</li>
+        <li><b>body_html:</b> {{product.body_html}}</li>
+        <li><b>vendor:</b> {{product.vendor}}</li>
+        <li><b>product_type:</b> {{product.product_type}}</li>
+        <li><b>created_at:</b> {{product.created_at}}</li>
+        <li><b>handle:</b> {{product.handle}}</li>
+        <li><b>updated_at:</b> {{product.updated_at}}</li>
+        <li><b>published_at:</b> {{product.published_at}}</li>
+        <li><b>template_suffix:</b> {{product.template_suffix}}</li>
+        <li><b>tags:</b> {{product.tags}}</li>
+        <li><b>published_scope:</b> {{product.published_scope}}</li>
+        <li><b>admin_graphql_api_id:</b>{{product.admin_graphql_api_id}}</li>
+        {{@each product.variants}}
+            <li><b>variants_id:</b>{{id}}</li>
+        {{/each}}
+        </ul>
+        <a href="/shopify_products"><button type="button" class="btn btn-default">back</button></a>
+        <button type="submit" class="btn btn-primary">edit</button>
+    </form> 
+</body>
+</html>

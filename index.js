@@ -31,6 +31,7 @@ const shopify = new Shopify({
     password: apiPass
   });
 
+//Product list
 app.get('/shopify_products',function(req, res){
     shopify.product.list()
   .then(product => 
@@ -41,7 +42,19 @@ app.get('/shopify_products',function(req, res){
   })
   )
   .catch(err => console.error(err));
+});
 
+//Details views
+app.get('/product/view/:id',function(req, res){
+    shopify.product.get(req.params.id)
+    .then(product =>
+        //res.send(product)
+        res.render('details',{
+            title: "detail view",
+            product: product
+        })
+        )
+    .catch(err => console.error(err));
 });
 
 // index for testing
