@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title>{{title}}</title>
+</head>
+<body>
+    <form method="POST" action="">
+        <div class="form-group">
+            <label for="id">id:</label>
+            <input type="text" class="form-control" value={{product.id}}>
+        </div>
+        <div class="form-group">
+            <label for="title">title:</label>
+            <input type="text" class="form-control" value={{product.title}}>
+        </div>
+        <div class="form-group">
+        <label for="body_html">body_html:</label>
+        <textarea class="form-control" rows="5" aria-valuenow={{product.body_html}}></textarea>
+        </div>
+    </form>
+</body>
+</html>

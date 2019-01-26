@@ -8,7 +8,7 @@
     <title>{{title}}</title>
 </head>
 <body>
-    <form method="POST" action="">
+    
     {{#each product}}
     <div class="form-group">
     <h1>{{id}}</h1>
@@ -16,10 +16,10 @@
     <h5>vendor: {{vendor}}</h5>
     <p>product_type: {{product_type}}</p>
     </div>
-    <a href="/product/view/{{id}}"><button type="button" class="btn btn-default">details</button></a>
-    <button type="submit" class="btn btn-primary">edit</button>
+    <a href="/product/detail/{{id}}"><button type="button" class="btn btn-default">details</button></a>
+    <a href="/product/edit/{{id}}"><button type="button" class="btn btn-primary">edit</button></a>
     <hr>
     {{/each}}
-    </form>
+    
 </body>
 </html>

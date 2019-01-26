@@ -5,10 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script>
+    $(document).ready(function(){
+    $(".glyphicon").click(function(){
+        $(".variants").toggle();
+    });
+    });
+    </script>
     <title>{{title}}</title>
 </head>
 <body>
-    <form method="POST" action="">
+    <br>
         <ul>
         <li><b>id:</b> {{product.id}}</li>
         <li><b>title:</b> {{product.title}}</li>
@@ -23,12 +32,46 @@
         <li><b>tags:</b> {{product.tags}}</li>
         <li><b>published_scope:</b> {{product.published_scope}}</li>
         <li><b>admin_graphql_api_id:</b>{{product.admin_graphql_api_id}}</li>
-        {{@each product.variants}}
-            <li><b>variants_id:</b>{{id}}</li>
+        {{!-- {{product.variants}} --}}
+        <h4>Variants: <span class="glyphicon glyphicon-play"></span></h4>
+        <div class="variants" style="display:none">
+        <ul>
+        {{#each product.variants}}
+
+            
+            <li><b>variants_id</b>{{id}}</li>
+            <li><b>variants_product_id</b>{{product_id}}</li>
+            <li><b>variants_title</b>{{title}}</li>
+            <li><b>variants_price</b>{{price}}</li>
+            <li><b>variants_sku</b>{{sku}}</li>
+            <li><b>variants_position</b>{{position}}</li>
+            <li><b>variants_inventory_policy</b>{{inventory_policy}}</li>
+            <li><b>variants_compare_at_price</b>{{compare_at_price}}</li>
+            <li><b>variants_fulfillment_service</b>{{fulfillment_service}}</li>
+            <li><b>variants_inventory_management</b>{{inventory_management}}</li>
+            <li><b>variants_option1</b>{{option1}}</li>
+            <li><b>variants_option2</b>{{option2}}</li>
+            <li><b>variants_option3</b>{{option3}}</li>
+            <li><b>variants_created_at</b>{{created_at}}</li>
+            <li><b>variants_updated_at</b>{{updated_at}}</li>
+            <li><b>variants_taxable</b>{{taxable}}</li>
+            <li><b>variants_barcode</b>{{barcode}}</li>
+            <li><b>variants_grams</b>{{grams}}</li>
+            <li><b>variants_image_id</b>{{image_id}}</li>
+            <li><b>variants_weight</b>{{weight}}</li>
+            <li><b>variants_weight_unit</b>{{weight_unit}}</li>
+            <li><b>variants_inventory_item_id</b>{{inventory_item_id}}</li>
+            <li><b>variants_inventory_quantity</b>{{inventory_quantity}}</li>
+            <li><b>variants_old_inventory_quantity</b>{{old_inventory_quantity}}</li>
+            <li><b>variants_requires_shipping</b>{{requires_shipping}}</li>
+            <li><b>variants_admin_graphql_api_id</b>{{admin_graphql_api_id}}</li>
+            <br><br>
+
         {{/each}}
         </ul>
+        </div>
         <a href="/shopify_products"><button type="button" class="btn btn-default">back</button></a>
-        <button type="submit" class="btn btn-primary">edit</button>
-    </form> 
+        <a href="/product/edit/{{id}}"><button type="button" class="btn btn-primary">edit</button></a>
+    
 </body>
 </html>

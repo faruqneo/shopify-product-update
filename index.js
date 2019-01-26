@@ -3,6 +3,7 @@ const path = require('path');
 const Shopify = require('shopify-api-node');
 const hbs = require('express-hbs');
 const dotenv = require('dotenv').config();
+const bodyParser = require('body-parser');
 
 //set dotenv values
 const apiKey = process.env.SHOPIFY_PRIVATE_API_KEY;
@@ -24,12 +25,27 @@ app.engine('hbs', hbs.express4({
 app.set('view engine','hbs');
 app.set('views',path.join(__dirname,'views'));
 
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+ 
+// parse application/json
+app.use(bodyParser.json())
+
 //shopify API settng
 const shopify = new Shopify({
     shopName: shopname,
     apiKey: apiKey,
     password: apiPass
   });
+
+// index for testing
+app.get('/',function(req, res){
+   // res.send('Hello');
+   res.render('index',{
+       title: "index",
+       data: "it is working."
+   });
+});
 
 //Product list
 app.get('/shopify_products',function(req, res){
@@ -45,7 +61,7 @@ app.get('/shopify_products',function(req, res){
 });
 
 //Details views
-app.get('/product/view/:id',function(req, res){
+app.get('/product/detail/:id',function(req, res){
     shopify.product.get(req.params.id)
     .then(product =>
         //res.send(product)
@@ -57,14 +73,17 @@ app.get('/product/view/:id',function(req, res){
     .catch(err => console.error(err));
 });
 
-// index for testing
-app.get('/',function(req, res){
-   // res.send('Hello');
-   res.render('index',{
-       title: "index",
-       data: "it is working."
-   });
+//Edit views
+app.get('/product/edit/:id',function(req, res){
+    shopify.product.get(req.params.id)
+    .then(product => res.render('edit',{
+        title: "edit page",
+        product: product
+    }))
+    .catch(err => console.error(err));
 });
+
+
 
 app.listen(3000, function(req, res){
     console.log("server is running");
