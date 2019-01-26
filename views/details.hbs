@@ -19,7 +19,8 @@
 <body>
     <br>
         <ul>
-        <li><b>id:</b> {{product.id}}</li>
+        <h3>{{product.id}}</h3>
+        {{!-- <li><b>id:</b> {{product.id}}</li> --}}
         <li><b>title:</b> {{product.title}}</li>
         <li><b>body_html:</b> {{product.body_html}}</li>
         <li><b>vendor:</b> {{product.vendor}}</li>
@@ -71,7 +72,7 @@
         </ul>
         </div>
         <a href="/shopify_products"><button type="button" class="btn btn-default">back</button></a>
-        <a href="/product/edit/{{id}}"><button type="button" class="btn btn-primary">edit</button></a>
+        <a href="/product/edit/{{product.id}}"><button type="button" class="btn btn-primary">edit</button></a>
     
 </body>
 </html>
