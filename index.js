@@ -85,26 +85,12 @@ app.get('/product/edit/:id',function(req, res){
 
 //Edit post
 app.post('/product/edit/:id',function(req, res){
-    let product = {};
- //   product.id = req.body.product.id;
-    product.title = req.body.title;
-    product.body_html = req.body.body_html;
-    product.product_type = req.body.product_type;
-    product.created_at = req.body.created_at;
-    product.handle = req.body.handle;
-    product.updated_at = req.body.updated_at;
-    product.published_at = req.body.published_at;
-    product.template_suffix = req.body.template_suffix;
-    product.tags = req.body.tags;
-    product.published_scope = req.body.published_scope;
-    product.admin_graphql_api_id = req.body.admin_graphql_api_id;
-
+    let product = req.body;
+    
     //res.send(product);
     shopify.product.update(req.params.id, product)
     .then(product => res.redirect('/shopify_products'))
     .catch(err => console.error(err));
-
-
 });
 
 app.listen(3000, function(req, res){
