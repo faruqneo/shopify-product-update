@@ -5,12 +5,14 @@ const hbs = require('express-hbs');
 const dotenv = require('dotenv').config();
 const bodyParser = require('body-parser');
 
+
 //set dotenv values
 const apiKey = process.env.SHOPIFY_PRIVATE_API_KEY;
 const apiPass = process.env.SHOPIFY_PRIVATE_API_PASSWORD;
 const apiSecret = process.env.SHOPIFY_PRIVATE_API_SECRET;
 const shop = process.env.SHOPIFY_PRIVATE_API_SHOP;
 const shopname = process.env.SHOPIFY_PRIVATE_API_SHOP_name;
+const PORT = process.env.PORT || 3000
 
 //Init app
 const app = express();
@@ -92,6 +94,6 @@ app.post('/product/edit/:id',function(req, res){
     .catch(err => console.error(err));
 });
 
-app.listen(3000, function(req, res){
+app.listen(PORT, function(req, res){
     console.log("server is running");
 });
