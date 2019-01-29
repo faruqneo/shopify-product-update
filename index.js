@@ -47,7 +47,7 @@ app.get('/',function(req, res){
    });
 });
 
-//Product list
+//Product list view
 app.get('/shopify_products',function(req, res){
     shopify.product.list()
   .then(product => 
@@ -64,7 +64,7 @@ app.get('/shopify_products',function(req, res){
 app.get('/product/detail/:id',function(req, res){
     shopify.product.get(req.params.id)
     .then(product =>
-        //res.send(product)
+       // res.send(product)
         res.render('details',{
             title: "detail view",
             product: product
@@ -86,7 +86,6 @@ app.get('/product/edit/:id',function(req, res){
 //Edit post
 app.post('/product/edit/:id',function(req, res){
     let product = req.body;
-    
     //res.send(product);
     shopify.product.update(req.params.id, product)
     .then(product => res.redirect('/shopify_products'))
