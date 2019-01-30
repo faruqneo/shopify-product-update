@@ -28,7 +28,11 @@
         <br>
         <div class="form-group">
             <label for="title">id:</label>
-            <input type="text" class="form-control" name="title" value="{{product.id}}" readonly>
+            <input type="text" class="form-control" name="id" value="{{product.id}}" readonly>
+        </div>
+        <div class="form-group">
+            <label for="title">title:</label>
+            <input type="text" class="form-control" name="title" value="{{product.title}}" >
         </div>
         <div class="form-group">
         <label for="body_html">body_html:</label>
@@ -71,7 +75,7 @@
             <input type="text" class="form-control" name="admin_graphql_api_id" value="{{product.admin_graphql_api_id}}" readonly>
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary">edit</button>
+            <button type="submit" class="btn btn-primary">submit</button>
             <a href="/shopify_products"><button type="button" class="btn btn-default">back</button></a>
         </div>
     </form>
