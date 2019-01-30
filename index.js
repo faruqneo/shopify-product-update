@@ -12,7 +12,7 @@ const apiPass = process.env.SHOPIFY_PRIVATE_API_PASSWORD;
 const apiSecret = process.env.SHOPIFY_PRIVATE_API_SECRET;
 const shop = process.env.SHOPIFY_PRIVATE_API_SHOP;
 const shopname = process.env.SHOPIFY_PRIVATE_API_SHOP_name;
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 5000
 
 //Init app
 const app = express();
